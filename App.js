@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { Component } from "react";
 
 import "./App.css";
@@ -8,25 +7,21 @@ import { Container,Grid, Card, Icon, Button, Image } from "semantic-ui-react";
 
 
 
-=======
-import React, { Component } from 'react';
->>>>>>> b73a7bb7edeabe577ad46b87172660c1cb8e2cc8
-
 class App extends Component {
-  constructor(props) {
-     super(props);
-
-     // This binding is necessary to make `this` work in the callback
-     this.buttClick = this.buttClick.bind(this);
-   }
-
-
   buttClick = (adress) => {
     console.log("Butt was clicked");
-
+    let father_gift_num = Math.floor(Math.random() * 3);
+    let mother_gift_num = Math.floor(Math.random() * 3);
+    let daughter_gift_num = Math.floor(Math.random() * 3);
     alert(
-      "Butt was clicked" + adress);
-    window.open("http://www.crea.com.ua", "_blank");
+      "Butt was clicked" +
+        father_gift_num +
+        " " +
+        mother_gift_num +
+        " " +
+        daughter_gift_num
+    );
+    window.open("www.crea.com.ua", "_blank");
   };
 
   render() {
@@ -37,7 +32,7 @@ class App extends Component {
             <Grid.Row>
               {data.map(function(gifts) {
                 return (
-                  <Grid.Column key={gifts.id}>
+                  <Grid.Column>
                     <Card>
                       <Image src={gifts.img_src} />
                       <Card.Content>
@@ -49,13 +44,7 @@ class App extends Component {
                         </Card.Meta>
                       </Card.Content>
                       <Card.Content extra>
-
-                      { /*<Button adress={gifts.giftlink}> Go to {gifts.person}'s Gitf</Button> */}
-
-                       <Button onClick={function() {this.buttClick(gifts.giftlink)}}> Go to {gifts.person}'s Gitf</Button>
-
-
-
+                        <Button adress={gifts.giftlink}> Go to {gifts.person}'s Gitf</Button>
                       </Card.Content>
                     </Card>
                   </Grid.Column>
